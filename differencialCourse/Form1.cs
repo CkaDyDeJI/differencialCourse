@@ -89,14 +89,14 @@ namespace differencialCourse
 
         private void methodComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (methodComboBox.SelectedIndex == 0)
+            if (methodComboBox.SelectedIndex == 0)  //показываем таблицу для метода эйлера, скрываем таблицу рунге-кутты
             {
                 calculatedData.Visible = true;
                 rungeData.Visible = false;
             }
             else
             {
-                if (methodComboBox.SelectedIndex == 1)
+                if (methodComboBox.SelectedIndex == 1)  //наоборот
                 {
                     calculatedData.Visible = false;
                     rungeData.Visible = true;
