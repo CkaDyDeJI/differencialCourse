@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.calculatedData = new System.Windows.Forms.DataGridView();
             this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.yLabel = new System.Windows.Forms.ToolStripLabel();
             this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -89,8 +89,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1
             // 
@@ -110,6 +110,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(979, 558);
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(111, 13);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(235, 50);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "y^\'=x+ycos(x)";
             // 
             // calculatedData
             // 
@@ -162,7 +171,7 @@
             this.calculateButton});
             this.toolStrip1.Location = new System.Drawing.Point(136, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(731, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(762, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -221,8 +230,7 @@
             this.methodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.methodComboBox.Items.AddRange(new object[] {
             "Euler",
-            "Runge-Kutte",
-            "Adams"});
+            "Runge-Kutte"});
             this.methodComboBox.Name = "methodComboBox";
             this.methodComboBox.Size = new System.Drawing.Size(121, 25);
             // 
@@ -258,15 +266,6 @@
             this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(111, 13);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(235, 50);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "y^\'=x+ycos(x)";
             // 
             // Form1
             // 

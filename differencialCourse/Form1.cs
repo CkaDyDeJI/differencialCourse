@@ -32,14 +32,10 @@ namespace differencialCourse
 
             if (dropDownMethod != -1) calculatedData.Rows.Clear();  //очистка таблицы, чтобы она пересоздавалась
 
-            if (dropDownMethod == 0) {
+            if (dropDownMethod == 0)
                 eulerMethod();  //если выбран эйлер, то эйлер
-            } else {
-                if (dropDownMethod == 1)
-                    rungeKutteMethod(); //если рунге кутты, то рунге кутты
-                else
-                    adamsMethod();  //метод адамса
-            }
+            else
+                rungeKutteMethod();
         }
 
 
@@ -145,17 +141,9 @@ namespace differencialCourse
         }
 
 
-        private void adamsMethod()  //адамса
-        {
-        }
-
-
         private double F (double x, double y)   //заданная функция
         {
             return x + y * Math.Cos (x);
-            //return x * x - 2 * y;
-            //return 0.1 * x * y;
-            //return (5 * x * y) + (2 * y) - x;
         }
     }
 }
