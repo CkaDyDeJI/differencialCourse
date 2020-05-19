@@ -36,6 +36,14 @@
             this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rungeData = new System.Windows.Forms.DataGridView();
+            this.Xk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.k1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.k2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.k3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.k4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.yLabel = new System.Windows.Forms.ToolStripLabel();
             this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -51,14 +59,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
-            this.rungeData = new System.Windows.Forms.DataGridView();
-            this.Xk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.k1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.k2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.k3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.k4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -67,9 +67,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,8 +98,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1
             // 
@@ -152,122 +152,6 @@
             this.Yy.HeaderText = "y\'";
             this.Yy.Name = "Yy";
             this.Yy.ReadOnly = true;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yLabel,
-            this.yTextBox});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(133, 25);
-            this.toolStrip2.TabIndex = 1;
-            // 
-            // yLabel
-            // 
-            this.yLabel.Name = "yLabel";
-            this.yLabel.Size = new System.Drawing.Size(19, 22);
-            this.yLabel.Text = "y0";
-            // 
-            // yTextBox
-            // 
-            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.yTextBox.Name = "yTextBox";
-            this.yTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.leftBorderBox,
-            this.toolStripSeparator1,
-            this.toolStripLabel2,
-            this.rightBorderBox,
-            this.toolStripSeparator2,
-            this.stepLabel,
-            this.stepBox,
-            this.toolStripSeparator3,
-            this.methodComboBox,
-            this.calculateButton});
-            this.toolStrip1.Location = new System.Drawing.Point(136, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(731, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(79, 22);
-            this.toolStripLabel1.Text = "left border (a)";
-            // 
-            // leftBorderBox
-            // 
-            this.leftBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.leftBorderBox.Name = "leftBorderBox";
-            this.leftBorderBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(88, 22);
-            this.toolStripLabel2.Text = "right border (b)";
-            // 
-            // rightBorderBox
-            // 
-            this.rightBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rightBorderBox.Name = "rightBorderBox";
-            this.rightBorderBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // stepLabel
-            // 
-            this.stepLabel.Name = "stepLabel";
-            this.stepLabel.Size = new System.Drawing.Size(47, 22);
-            this.stepLabel.Text = "step (h)";
-            // 
-            // stepBox
-            // 
-            this.stepBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.stepBox.Name = "stepBox";
-            this.stepBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // methodComboBox
-            // 
-            this.methodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.methodComboBox.Items.AddRange(new object[] {
-            "Euler",
-            "Runge-Kutte",
-            "Adams"});
-            this.methodComboBox.Name = "methodComboBox";
-            this.methodComboBox.Size = new System.Drawing.Size(121, 25);
-            this.methodComboBox.SelectedIndexChanged += new System.EventHandler(this.methodComboBox_SelectedIndexChanged);
-            // 
-            // calculateButton
-            // 
-            this.calculateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.calculateButton.Image = ((System.Drawing.Image)(resources.GetObject("calculateButton.Image")));
-            this.calculateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(58, 22);
-            this.calculateButton.Text = "calculate";
-            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // rungeData
             // 
@@ -324,14 +208,121 @@
             this.Yks.HeaderText = "Y\'";
             this.Yks.Name = "Yks";
             // 
-            // richTextBox1
+            // toolStrip2
             // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(111, 13);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(235, 50);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "y^\'=x+ycos(x)";
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yLabel,
+            this.yTextBox});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(133, 25);
+            this.toolStrip2.TabIndex = 1;
+            // 
+            // yLabel
+            // 
+            this.yLabel.Name = "yLabel";
+            this.yLabel.Size = new System.Drawing.Size(19, 22);
+            this.yLabel.Text = "y0";
+            // 
+            // yTextBox
+            // 
+            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.yTextBox.Name = "yTextBox";
+            this.yTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.leftBorderBox,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.rightBorderBox,
+            this.toolStripSeparator2,
+            this.stepLabel,
+            this.stepBox,
+            this.toolStripSeparator3,
+            this.methodComboBox,
+            this.calculateButton});
+            this.toolStrip1.Location = new System.Drawing.Point(136, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(791, 25);
+            this.toolStrip1.TabIndex = 0;
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(103, 22);
+            this.toolStripLabel1.Text = "левая граница (a)";
+            // 
+            // leftBorderBox
+            // 
+            this.leftBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.leftBorderBox.Name = "leftBorderBox";
+            this.leftBorderBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(111, 22);
+            this.toolStripLabel2.Text = "правая граница (b)";
+            // 
+            // rightBorderBox
+            // 
+            this.rightBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rightBorderBox.Name = "rightBorderBox";
+            this.rightBorderBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // stepLabel
+            // 
+            this.stepLabel.Name = "stepLabel";
+            this.stepLabel.Size = new System.Drawing.Size(47, 22);
+            this.stepLabel.Text = "шаг (h)";
+            // 
+            // stepBox
+            // 
+            this.stepBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.stepBox.Name = "stepBox";
+            this.stepBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // methodComboBox
+            // 
+            this.methodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.methodComboBox.Items.AddRange(new object[] {
+            "Euler",
+            "Runge-Kutte"});
+            this.methodComboBox.Name = "methodComboBox";
+            this.methodComboBox.Size = new System.Drawing.Size(121, 25);
+            this.methodComboBox.SelectedIndexChanged += new System.EventHandler(this.methodComboBox_SelectedIndexChanged);
+            // 
+            // calculateButton
+            // 
+            this.calculateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.calculateButton.Image = ((System.Drawing.Image)(resources.GetObject("calculateButton.Image")));
+            this.calculateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new System.Drawing.Size(71, 22);
+            this.calculateButton.Text = "вычислить";
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // Form1
             // 
@@ -354,11 +345,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).EndInit();
             this.ResumeLayout(false);
 
         }

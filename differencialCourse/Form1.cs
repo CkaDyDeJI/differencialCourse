@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -31,14 +30,10 @@ namespace differencialCourse
 
             var selectedMethod = methodComboBox.SelectedIndex;  //сохранение индекса выбранного способо решения
 
-            var dropDownMethod = methodComboBox.SelectedIndex;  //сохранение индекса выбранного способо решения
-
-            if (dropDownMethod != -1) calculatedData.Rows.Clear();  //очистка таблицы, чтобы она пересоздавалась
-
-            if (dropDownMethod == 0)
+            if (selectedMethod == 0)
                 eulerMethod();  //если выбран эйлер, то эйлер
             else
-                rungeKutteMethod();
+                rungeKutteMethod(); //рунге-кутты
         }
 
 
@@ -181,9 +176,9 @@ namespace differencialCourse
         }
 
 
-        private double F (double x, double y)   //заданная функция
+        private double F(double x1, double y1)   //заданная функция
         {
-            return x + y * Math.Cos (x);
+            return (5 * x1 * y1) + (2 * y1) - x1;
         }
     }
 }
