@@ -10,7 +10,7 @@ namespace differencialCourse
 
     public partial class Form1 : Form
     {
-        private readonly double[] startValues_ = new double[4]; //входные значения будут хваниться тут
+        private readonly double[] startValues_ = new double[4]; 
 
 
         public Form1()
@@ -19,21 +19,21 @@ namespace differencialCourse
         }
 
 
-        private void calculateButton_Click(object sender, EventArgs e) //нажатие на кнопку рассчета штука
+        private void calculateButton_Click(object sender, EventArgs e) 
         {
             if (initializeField() == false)
-            {   //функция проверки входных параметров
-                MessageBox.Show("input correct values");   //сообщения о неправильном вводе
+            {   
+                MessageBox.Show("input correct values");   
 
                 return;
             }
 
-            var selectedMethod = methodComboBox.SelectedIndex;  //сохранение индекса выбранного способо решения
+            var selectedMethod = methodComboBox.SelectedIndex;  
 
             if (selectedMethod == 0)
-                eulerMethod();  //если выбран эйлер, то эйлер
+                eulerMethod();  
             else
-                rungeKutteMethod(); //рунге-кутты
+                rungeKutteMethod(); 
         }
 
 
@@ -41,18 +41,18 @@ namespace differencialCourse
         {
             try
             {
-                startValues_[0] = ToDouble(leftBorderBox.Text.Replace('.', ',')); //левая граница и по совместительству х0
+                startValues_[0] = ToDouble(leftBorderBox.Text.Replace('.', ',')); 
             }
             catch
             {
-                MessageBox.Show("incorrect left border");  //иначе сообщить пользователю и возврат 
+                MessageBox.Show("incorrect left border");  
 
                 return false;
             }
 
             try
             {
-                startValues_[1] = ToDouble(rightBorderBox.Text.Replace('.', ','));    //правая граница интервала
+                startValues_[1] = ToDouble(rightBorderBox.Text.Replace('.', ','));    
             }
             catch
             {
@@ -63,7 +63,7 @@ namespace differencialCourse
 
             try
             {
-                startValues_[2] = ToDouble(stepBox.Text.Replace('.', ','));   //шаг
+                startValues_[2] = ToDouble(stepBox.Text.Replace('.', ','));   
             }
             catch
             {
@@ -74,7 +74,7 @@ namespace differencialCourse
 
             try
             {
-                startValues_[3] = ToDouble(yTextBox.Text.Replace('.', ','));  //у0
+                startValues_[3] = ToDouble(yTextBox.Text.Replace('.', ','));  
             }
             catch
             {
@@ -83,20 +83,20 @@ namespace differencialCourse
                 return false;
             }
 
-            return true;    //если все нормально считалось, то выполнение программы продолжается
+            return true;    
         }
 
 
         private void methodComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (methodComboBox.SelectedIndex == 0)  //показываем таблицу для метода эйлера, скрываем таблицу рунге-кутты
+            if (methodComboBox.SelectedIndex == 0)  
             {
                 calculatedData.Visible = true;
                 rungeData.Visible = false;
             }
             else
             {
-                if (methodComboBox.SelectedIndex == 1)  //наоборот
+                if (methodComboBox.SelectedIndex == 1)  
                 {
                     calculatedData.Visible = false;
                     rungeData.Visible = true;
@@ -105,38 +105,38 @@ namespace differencialCourse
         }
 
 
-        private void eulerMethod()  //эйлер
+        private void eulerMethod()  
         {
-            calculatedData.Rows.Clear();    //таблица для эйлера
+            calculatedData.Rows.Clear();    
 
-            var step = startValues_[2]; //значения шага внутри функции
+            var step = startValues_[2]; 
 
-            calculatedData.Rows.Add();  //добавление строки в таблицу
-            calculatedData.Rows[0].Cells[0].Value = startValues_.First();   //внос в таблицу х0
-            calculatedData.Rows[0].Cells[1].Value = startValues_.Last();    //у0
+            calculatedData.Rows.Add();  
+            calculatedData.Rows[0].Cells[0].Value = startValues_.First();   
+            calculatedData.Rows[0].Cells[1].Value = startValues_.Last();    
 
 
-            var k = 0;  //номер строки, с которой работаем
-            double previousY = 0;   //предыдущий вычисленный y0
-            double previousYd = 0;  //предыдущая вычисленная производная от у
+            var k = 0;  
+            double previousY = 0;   
+            double previousYd = 0;  
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
-            { //проход по всему интервалу с шагом
+            { 
                 calculatedData.Rows.Add();
-                previousY = ToDouble(calculatedData.Rows[k].Cells[1].Value);   //достаем из таблицы последний вычисленный y
-                previousYd = step * F(i, previousY);   //вычисляем новую производную от y
+                previousY = ToDouble(calculatedData.Rows[k].Cells[1].Value);   
+                previousYd = step * F(i, previousY);   
 
-                calculatedData.Rows[k].Cells[2].Value = previousYd; //записываем в таблицу
-                k++;    //переходим на следующую строку
+                calculatedData.Rows[k].Cells[2].Value = previousYd; 
+                k++;    
 
-                calculatedData.Rows[k].Cells[0].Value = i + step;   //записываем в таблицу новый х (xi + 1)
-                calculatedData.Rows[k].Cells[1].Value = previousYd + previousY; //новый y (yi)
+                calculatedData.Rows[k].Cells[0].Value = i + step;   
+                calculatedData.Rows[k].Cells[1].Value = previousYd + previousY; 
             }
         }
 
 
-        private void rungeKutteMethod() //рунге кутты (тут все то же самое, но с промежуточным вычисление коэффициентов)
+        private void rungeKutteMethod() 
         {
-            rungeData.Rows.Clear(); //таблица для рунге кутты
+            rungeData.Rows.Clear(); 
 
             var step = startValues_[2];
 
@@ -145,7 +145,7 @@ namespace differencialCourse
             rungeData.Rows[0].Cells[1].Value = startValues_.Last();
 
             var k = 0;
-            double k1 = 0;  //переменные для коэффициентов
+            double k1 = 0;  
             double k2 = 0;
             double k3 = 0;
             double k4 = 0;
@@ -154,31 +154,31 @@ namespace differencialCourse
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
             {
                 rungeData.Rows.Add();
-                previousY = ToDouble(rungeData.Rows[k].Cells[1].Value);   //запись предыдущего у в переменную
+                previousY = ToDouble(rungeData.Rows[k].Cells[1].Value);   
 
-                k1 = step * F(i, previousY);   //вычисление к1
+                k1 = step * F(i, previousY);   
                 k2 = step * F(i + step / 2.0, previousY + k1 / 2.0);
                 k3 = step * F(i + step / 2.0, previousY + k2 / 2.0);
                 k4 = step * F(i + step, previousY + k3);
-                rungeData.Rows[k].Cells[2].Value = k1;  //внесение коэффов в таблицу
+                rungeData.Rows[k].Cells[2].Value = k1;  
                 rungeData.Rows[k].Cells[3].Value = k2;
                 rungeData.Rows[k].Cells[4].Value = k3;
                 rungeData.Rows[k].Cells[5].Value = k4;
 
-                previousYd = 1.0 / 6.0 * (k1 + (2 * k2) + (2 * k3) + k4);   //вычисление производной от у
+                previousYd = 1.0 / 6.0 * (k1 + (2 * k2) + (2 * k3) + k4);   
 
-                rungeData.Rows[k].Cells[6].Value = previousYd; //добавление ее в таблицу
+                rungeData.Rows[k].Cells[6].Value = previousYd; 
                 k++;
 
-                rungeData.Rows[k].Cells[0].Value = i + step;   //добавление след х
-                rungeData.Rows[k].Cells[1].Value = previousYd + previousY; //след у
+                rungeData.Rows[k].Cells[0].Value = i + step;   
+                rungeData.Rows[k].Cells[1].Value = previousYd + previousY;
             }
         }
 
 
-        private double F(double x1, double y1)   //заданная функция
+        private double F(double x1, double y1)   
         {
-            return (5 * x1 * y1) + (2 * y1) - x1;
+            return (2 * y1 + x1 * Math.Exp (-x1)) / 2;//(5 * x1 * y1) + (2 * y1) - x1);
         }
     }
 }

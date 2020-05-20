@@ -78,9 +78,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 37);
+            this.label1.Size = new System.Drawing.Size(258, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "y\' = 5xy + 2y - x";
+            this.label1.Text = "2y\' = 2y + xe^(-x)";
             // 
             // toolStripContainer1
             // 
