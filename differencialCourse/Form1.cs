@@ -83,6 +83,12 @@ namespace differencialCourse
                 return false;
             }
 
+            if  (startValues_[0] > startValues_[1]) {
+                MessageBox.Show("left border must be lesser than right");
+
+                return false;
+            }
+
             return true;    
         }
 
