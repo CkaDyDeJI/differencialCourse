@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.timeLabel = new System.Windows.Forms.Label();
+            this.eulerTimer = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.calculatedData = new System.Windows.Forms.DataGridView();
             this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +62,7 @@
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
             this.methodListBox = new System.Windows.Forms.ListBox();
+            this.rungeTimer = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -117,8 +118,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.rungeTimer);
             this.splitContainer1.Panel1.Controls.Add(this.methodListBox);
-            this.splitContainer1.Panel1.Controls.Add(this.timeLabel);
+            this.splitContainer1.Panel1.Controls.Add(this.eulerTimer);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -128,13 +130,13 @@
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 2;
             // 
-            // timeLabel
+            // eulerTimer
             // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(19, 114);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(0, 13);
-            this.timeLabel.TabIndex = 1;
+            this.eulerTimer.AutoSize = true;
+            this.eulerTimer.Location = new System.Drawing.Point(12, 129);
+            this.eulerTimer.Name = "eulerTimer";
+            this.eulerTimer.Size = new System.Drawing.Size(0, 13);
+            this.eulerTimer.TabIndex = 1;
             // 
             // splitContainer2
             // 
@@ -260,6 +262,7 @@
             // 
             // yTextBox
             // 
+            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -292,6 +295,7 @@
             // 
             // leftBorderBox
             // 
+            this.leftBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.leftBorderBox.Name = "leftBorderBox";
             this.leftBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -308,6 +312,7 @@
             // 
             // rightBorderBox
             // 
+            this.rightBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.rightBorderBox.Name = "rightBorderBox";
             this.rightBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -324,6 +329,7 @@
             // 
             // stepBox
             // 
+            this.stepBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.stepBox.Name = "stepBox";
             this.stepBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -363,6 +369,14 @@
             this.methodListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.methodListBox.Size = new System.Drawing.Size(120, 30);
             this.methodListBox.TabIndex = 3;
+            // 
+            // rungeTimer
+            // 
+            this.rungeTimer.AutoSize = true;
+            this.rungeTimer.Location = new System.Drawing.Point(346, 129);
+            this.rungeTimer.Name = "rungeTimer";
+            this.rungeTimer.Size = new System.Drawing.Size(0, 13);
+            this.rungeTimer.TabIndex = 4;
             // 
             // Form1
             // 
@@ -430,9 +444,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn k3;
         private System.Windows.Forms.DataGridViewTextBoxColumn k4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
-        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Label eulerTimer;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ListBox methodListBox;
+        private System.Windows.Forms.Label rungeTimer;
     }
 }
 

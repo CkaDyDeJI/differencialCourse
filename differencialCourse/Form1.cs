@@ -132,7 +132,7 @@ namespace differencialCourse
 
             watch.Stop();
 
-            timeLabel.Text = $"Метод Эйлера: {watch.Elapsed}";
+            eulerTimer.Text = $"Метод Эйлера: {watch.Elapsed}";
         }
 
 
@@ -181,7 +181,7 @@ namespace differencialCourse
 
             watch.Stop();
 
-            timeLabel.Text = $"Метод Эйлера: {watch.Elapsed}";
+            rungeTimer.Text = $"Метод Эйлера: {watch.Elapsed}";
         }
 
 
