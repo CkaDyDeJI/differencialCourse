@@ -37,6 +37,9 @@
             this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.yLabel = new System.Windows.Forms.ToolStripLabel();
+            this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.leftBorderBox = new System.Windows.Forms.ToolStripTextBox();
@@ -49,9 +52,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.yLabel = new System.Windows.Forms.ToolStripLabel();
-            this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -60,8 +61,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -101,6 +102,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.timeLabel);
             this.splitContainer1.Panel1.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
@@ -153,6 +155,29 @@
             this.Yy.Name = "Yy";
             this.Yy.ReadOnly = true;
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yLabel,
+            this.yTextBox});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(133, 25);
+            this.toolStrip2.TabIndex = 1;
+            // 
+            // yLabel
+            // 
+            this.yLabel.Name = "yLabel";
+            this.yLabel.Size = new System.Drawing.Size(19, 22);
+            this.yLabel.Text = "y0";
+            // 
+            // yTextBox
+            // 
+            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.yTextBox.Name = "yTextBox";
+            this.yTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -171,7 +196,7 @@
             this.calculateButton});
             this.toolStrip1.Location = new System.Drawing.Point(136, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(762, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(731, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -244,28 +269,13 @@
             this.calculateButton.Text = "calculate";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
-            // toolStrip2
+            // timeLabel
             // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yLabel,
-            this.yTextBox});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(133, 25);
-            this.toolStrip2.TabIndex = 1;
-            // 
-            // yLabel
-            // 
-            this.yLabel.Name = "yLabel";
-            this.yLabel.Size = new System.Drawing.Size(19, 22);
-            this.yLabel.Text = "y0";
-            // 
-            // yTextBox
-            // 
-            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.yTextBox.Name = "yTextBox";
-            this.yTextBox.Size = new System.Drawing.Size(100, 25);
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(6, 126);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 3;
             // 
             // Form1
             // 
@@ -288,10 +298,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -321,6 +331,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn y;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yy;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
 

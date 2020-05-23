@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -83,6 +84,9 @@ namespace differencialCourse
 
         private void eulerMethod()  //эйлер
         {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
             var step = startValues_[2]; //значения шага внутри функции
 
             calculatedData.Rows.Add();  //добавление строки в таблицу
@@ -104,11 +108,18 @@ namespace differencialCourse
                 calculatedData.Rows[k].Cells[0].Value = i + step;   //записываем в таблицу новый х (xi + 1)
                 calculatedData.Rows[k].Cells[1].Value = previousYd + previousY; //новый y (yi)
             }
+
+            watch.Stop();
+
+            timeLabel.Text = $"Метод Эйлера: {watch.Elapsed}";
         }
 
 
         private void rungeKutteMethod() //рунге кутты (тут все то же самое, но с промежуточным вычисление коэффициентов)
         {
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
             var step = startValues_[2];
 
             calculatedData.Rows.Add();
@@ -138,6 +149,10 @@ namespace differencialCourse
                 calculatedData.Rows[k].Cells[0].Value = i + step;   //добавление след х
                 calculatedData.Rows[k].Cells[1].Value = previousYd + previousY; //след у
             }
+
+            watch.Stop();
+
+            timeLabel.Text = $"Метод Рунге-Кутты: {watch.Elapsed}";
         }
 
 
