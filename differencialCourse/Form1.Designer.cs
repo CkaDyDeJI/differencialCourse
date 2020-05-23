@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.calculatedData = new System.Windows.Forms.DataGridView();
             this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +61,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
-            this.timeLabel = new System.Windows.Forms.Label();
+            this.methodListBox = new System.Windows.Forms.ListBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -67,6 +69,10 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rungeData)).BeginInit();
             this.toolStrip2.SuspendLayout();
@@ -111,16 +117,41 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.methodListBox);
             this.splitContainer1.Panel1.Controls.Add(this.timeLabel);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.calculatedData);
-            this.splitContainer1.Panel2.Controls.Add(this.rungeData);
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(979, 558);
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(19, 114);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 1;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.calculatedData);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.rungeData);
+            this.splitContainer2.Size = new System.Drawing.Size(979, 412);
+            this.splitContainer2.SplitterDistance = 345;
+            this.splitContainer2.TabIndex = 2;
             // 
             // calculatedData
             // 
@@ -134,7 +165,7 @@
             this.calculatedData.Location = new System.Drawing.Point(0, 0);
             this.calculatedData.Name = "calculatedData";
             this.calculatedData.RowHeadersVisible = false;
-            this.calculatedData.Size = new System.Drawing.Size(979, 412);
+            this.calculatedData.Size = new System.Drawing.Size(345, 412);
             this.calculatedData.TabIndex = 0;
             // 
             // x
@@ -171,9 +202,8 @@
             this.rungeData.Location = new System.Drawing.Point(0, 0);
             this.rungeData.Name = "rungeData";
             this.rungeData.RowHeadersVisible = false;
-            this.rungeData.Size = new System.Drawing.Size(979, 412);
+            this.rungeData.Size = new System.Drawing.Size(630, 412);
             this.rungeData.TabIndex = 1;
-            this.rungeData.Visible = false;
             // 
             // Xk
             // 
@@ -230,7 +260,6 @@
             // 
             // yTextBox
             // 
-            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -252,7 +281,7 @@
             this.calculateButton});
             this.toolStrip1.Location = new System.Drawing.Point(136, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(791, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(668, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -263,7 +292,6 @@
             // 
             // leftBorderBox
             // 
-            this.leftBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.leftBorderBox.Name = "leftBorderBox";
             this.leftBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -280,7 +308,6 @@
             // 
             // rightBorderBox
             // 
-            this.rightBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.rightBorderBox.Name = "rightBorderBox";
             this.rightBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -297,7 +324,6 @@
             // 
             // stepBox
             // 
-            this.stepBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.stepBox.Name = "stepBox";
             this.stepBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -314,7 +340,7 @@
             "Runge-Kutte"});
             this.methodComboBox.Name = "methodComboBox";
             this.methodComboBox.Size = new System.Drawing.Size(121, 25);
-            this.methodComboBox.SelectedIndexChanged += new System.EventHandler(this.methodComboBox_SelectedIndexChanged);
+            this.methodComboBox.Visible = false;
             // 
             // calculateButton
             // 
@@ -326,13 +352,17 @@
             this.calculateButton.Text = "вычислить";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
-            // timeLabel
+            // methodListBox
             // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(19, 114);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(0, 13);
-            this.timeLabel.TabIndex = 1;
+            this.methodListBox.FormattingEnabled = true;
+            this.methodListBox.Items.AddRange(new object[] {
+            "Эйлер",
+            "Рунге-Кутты"});
+            this.methodListBox.Location = new System.Drawing.Point(703, 3);
+            this.methodListBox.Name = "methodListBox";
+            this.methodListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.methodListBox.Size = new System.Drawing.Size(120, 30);
+            this.methodListBox.TabIndex = 3;
             // 
             // Form1
             // 
@@ -354,6 +384,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rungeData)).EndInit();
             this.toolStrip2.ResumeLayout(false);
@@ -397,6 +431,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn k4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
         private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.ListBox methodListBox;
     }
 }
 

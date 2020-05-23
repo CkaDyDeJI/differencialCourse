@@ -29,12 +29,18 @@ namespace differencialCourse
                 return;
             }
 
-            var selectedMethod = methodComboBox.SelectedIndex;  
+            var selectedMethod = methodListBox.SelectedIndices;
 
-            if (selectedMethod == 0)
-                eulerMethod();  
-            else
-                rungeKutteMethod(); 
+            if (selectedMethod.Count == 1) {
+                if (selectedMethod[0] == 0)
+                    eulerMethod();
+                else
+                    rungeKutteMethod();
+            } else {
+                eulerMethod();
+                rungeKutteMethod();
+            }
+            
         }
 
 
@@ -91,24 +97,6 @@ namespace differencialCourse
             }
 
             return true;    
-        }
-
-
-        private void methodComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (methodComboBox.SelectedIndex == 0)  
-            {
-                calculatedData.Visible = true;
-                rungeData.Visible = false;
-            }
-            else
-            {
-                if (methodComboBox.SelectedIndex == 1)  
-                {
-                    calculatedData.Visible = false;
-                    rungeData.Visible = true;
-                }
-            }
         }
 
 
