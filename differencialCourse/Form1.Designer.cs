@@ -59,6 +59,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -78,9 +79,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 37);
+            this.label1.Size = new System.Drawing.Size(306, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "2y\' = 2y + xe^(-x)";
+            this.label1.Text = "y\' = 2x^2 + 7y - 4y^2";
             // 
             // toolStripContainer1
             // 
@@ -110,6 +111,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.timeLabel);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -324,6 +326,14 @@
             this.calculateButton.Text = "вычислить";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(19, 114);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +396,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn k3;
         private System.Windows.Forms.DataGridViewTextBoxColumn k4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
 
