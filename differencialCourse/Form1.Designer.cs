@@ -59,6 +59,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -110,6 +111,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.timeLabel);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
@@ -324,6 +326,14 @@
             this.calculateButton.Text = "вычислить";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(4, 126);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(0, 13);
+            this.timeLabel.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +396,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn k3;
         private System.Windows.Forms.DataGridViewTextBoxColumn k4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
 
