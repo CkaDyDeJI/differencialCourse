@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -29,7 +30,14 @@ namespace differencialCourse
                 return;
             }
 
-            var selectedMethod = methodListBox.SelectedIndices;
+            var selectedMethod = methodList.CheckedIndices;
+
+            if (selectedMethod.Count == 0)
+            {
+                MessageBox.Show("ни один метод не выбран");
+
+                return;
+            }
 
             if (selectedMethod.Count == 1) {
                 if (selectedMethod[0] == 0)
@@ -40,7 +48,6 @@ namespace differencialCourse
                 eulerMethod();
                 rungeKutteMethod();
             }
-            
         }
 
 
@@ -92,6 +99,12 @@ namespace differencialCourse
 
             if  (startValues_[0] > startValues_[1]) {
                 MessageBox.Show("left border must be lesser than right");
+
+                return false;
+            }
+
+            if (startValues_[1] - startValues_[0] < startValues_[2]) {
+                MessageBox.Show ("step has to be lesser than difference between right and left border");
 
                 return false;
             }
@@ -185,9 +198,15 @@ namespace differencialCourse
         }
 
 
-        private double F(double x1, double y1)   
+        private double F (double x1, double y1)
         {
-            return (2 * x1 * x1) + (7 * y1) - (4 * y1 * y1);//(5 * x1 * y1) + (2 * y1) - x1);
+            //return (2 * x1 * x1) + (7 * y1) - (4 * y1 * y1); //(5 * x1 * y1) + (2 * y1) - x1)
+            return (2 * x1) + (5 * Math.Pow(x1, y1)) + (3 * y1);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

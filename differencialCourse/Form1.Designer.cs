@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.methodList = new System.Windows.Forms.CheckedListBox();
+            this.rungeTimer = new System.Windows.Forms.Label();
             this.eulerTimer = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.calculatedData = new System.Windows.Forms.DataGridView();
@@ -59,10 +61,7 @@
             this.stepLabel = new System.Windows.Forms.ToolStripLabel();
             this.stepBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.methodComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
-            this.methodListBox = new System.Windows.Forms.ListBox();
-            this.rungeTimer = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -86,9 +85,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 37);
+            this.label1.Size = new System.Drawing.Size(271, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "y\' = 2x^2 + 7y - 4y^2";
+            this.label1.Text = "y\' = 2x² + 7y – 4y² ";
             // 
             // toolStripContainer1
             // 
@@ -118,8 +117,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.methodList);
             this.splitContainer1.Panel1.Controls.Add(this.rungeTimer);
-            this.splitContainer1.Panel1.Controls.Add(this.methodListBox);
             this.splitContainer1.Panel1.Controls.Add(this.eulerTimer);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
@@ -129,6 +128,27 @@
             this.splitContainer1.Size = new System.Drawing.Size(979, 558);
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // methodList
+            // 
+            this.methodList.CheckOnClick = true;
+            this.methodList.FormattingEnabled = true;
+            this.methodList.Items.AddRange(new object[] {
+            "Эйлер",
+            "Рунге-Кутты"});
+            this.methodList.Location = new System.Drawing.Point(700, 3);
+            this.methodList.MultiColumn = true;
+            this.methodList.Name = "methodList";
+            this.methodList.Size = new System.Drawing.Size(120, 34);
+            this.methodList.TabIndex = 5;
+            // 
+            // rungeTimer
+            // 
+            this.rungeTimer.AutoSize = true;
+            this.rungeTimer.Location = new System.Drawing.Point(346, 129);
+            this.rungeTimer.Name = "rungeTimer";
+            this.rungeTimer.Size = new System.Drawing.Size(0, 13);
+            this.rungeTimer.TabIndex = 4;
             // 
             // eulerTimer
             // 
@@ -280,7 +300,6 @@
             this.stepLabel,
             this.stepBox,
             this.toolStripSeparator3,
-            this.methodComboBox,
             this.calculateButton});
             this.toolStrip1.Location = new System.Drawing.Point(136, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -338,16 +357,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // methodComboBox
-            // 
-            this.methodComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.methodComboBox.Items.AddRange(new object[] {
-            "Euler",
-            "Runge-Kutte"});
-            this.methodComboBox.Name = "methodComboBox";
-            this.methodComboBox.Size = new System.Drawing.Size(121, 25);
-            this.methodComboBox.Visible = false;
-            // 
             // calculateButton
             // 
             this.calculateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -357,26 +366,6 @@
             this.calculateButton.Size = new System.Drawing.Size(71, 22);
             this.calculateButton.Text = "вычислить";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
-            // 
-            // methodListBox
-            // 
-            this.methodListBox.FormattingEnabled = true;
-            this.methodListBox.Items.AddRange(new object[] {
-            "Эйлер",
-            "Рунге-Кутты"});
-            this.methodListBox.Location = new System.Drawing.Point(703, 3);
-            this.methodListBox.Name = "methodListBox";
-            this.methodListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.methodListBox.Size = new System.Drawing.Size(120, 30);
-            this.methodListBox.TabIndex = 3;
-            // 
-            // rungeTimer
-            // 
-            this.rungeTimer.AutoSize = true;
-            this.rungeTimer.Location = new System.Drawing.Point(346, 129);
-            this.rungeTimer.Name = "rungeTimer";
-            this.rungeTimer.Size = new System.Drawing.Size(0, 13);
-            this.rungeTimer.TabIndex = 4;
             // 
             // Form1
             // 
@@ -388,6 +377,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Диффуры";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -426,7 +416,6 @@
         private System.Windows.Forms.ToolStripLabel stepLabel;
         private System.Windows.Forms.ToolStripTextBox stepBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripComboBox methodComboBox;
         private System.Windows.Forms.ToolStripButton calculateButton;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView calculatedData;
@@ -446,8 +435,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
         private System.Windows.Forms.Label eulerTimer;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListBox methodListBox;
         private System.Windows.Forms.Label rungeTimer;
+        private System.Windows.Forms.CheckedListBox methodList;
     }
 }
 
