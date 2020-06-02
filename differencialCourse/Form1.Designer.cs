@@ -62,6 +62,8 @@
             this.stepBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.calculateButton = new System.Windows.Forms.ToolStripButton();
+            this.eulerTimer1 = new System.Windows.Forms.TextBox();
+            this.rungeTimer1 = new System.Windows.Forms.TextBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -117,6 +119,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.rungeTimer1);
+            this.splitContainer1.Panel1.Controls.Add(this.eulerTimer1);
             this.splitContainer1.Panel1.Controls.Add(this.methodList);
             this.splitContainer1.Panel1.Controls.Add(this.rungeTimer);
             this.splitContainer1.Panel1.Controls.Add(this.eulerTimer);
@@ -367,6 +371,20 @@
             this.calculateButton.Text = "вычислить";
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
+            // eulerTimer1
+            // 
+            this.eulerTimer1.Location = new System.Drawing.Point(19, 110);
+            this.eulerTimer1.Name = "eulerTimer1";
+            this.eulerTimer1.Size = new System.Drawing.Size(100, 20);
+            this.eulerTimer1.TabIndex = 6;
+            // 
+            // rungeTimer1
+            // 
+            this.rungeTimer1.Location = new System.Drawing.Point(462, 110);
+            this.rungeTimer1.Name = "rungeTimer1";
+            this.rungeTimer1.Size = new System.Drawing.Size(100, 20);
+            this.rungeTimer1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +395,6 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Диффуры";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -437,6 +454,8 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label rungeTimer;
         private System.Windows.Forms.CheckedListBox methodList;
+        private System.Windows.Forms.TextBox rungeTimer1;
+        private System.Windows.Forms.TextBox eulerTimer1;
     }
 }
 

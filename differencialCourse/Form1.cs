@@ -128,24 +128,25 @@ namespace differencialCourse
 
 
             var k = 0;  
-            double previousY = 0;   
+            double previousY = startValues_.Last();   
             double previousYd = 0;  
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
             { 
                 calculatedData.Rows.Add();
-                previousY = ToDouble(calculatedData.Rows[k].Cells[1].Value);   
+                //previousY = ToDouble(calculatedData.Rows[k].Cells[1].Value);   
                 previousYd = step * F(i, previousY);   
 
                 calculatedData.Rows[k].Cells[2].Value = previousYd; 
-                k++;    
+                k++;
 
+                previousY += previousYd;
                 calculatedData.Rows[k].Cells[0].Value = i + step;   
-                calculatedData.Rows[k].Cells[1].Value = previousYd + previousY; 
+                calculatedData.Rows[k].Cells[1].Value = previousY; 
             }
 
             watch.Stop();
 
-            eulerTimer.Text = $"Метод Эйлера: {watch.Elapsed}";
+            eulerTimer1.Text = $"Метод Эйлера: {watch.Elapsed}";
         }
 
 
@@ -167,12 +168,11 @@ namespace differencialCourse
             double k2 = 0;
             double k3 = 0;
             double k4 = 0;
-            double previousY = 0;
+            double previousY = startValues_.Last();
             double previousYd = 0;
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
             {
                 rungeData.Rows.Add();
-                previousY = ToDouble(rungeData.Rows[k].Cells[1].Value);
 
                 k1 = step * F(i, previousY);
                 k2 = step * F(i + step / 2.0, previousY + k1 / 2.0);
@@ -188,25 +188,20 @@ namespace differencialCourse
                 rungeData.Rows[k].Cells[6].Value = previousYd;
                 k++;
 
+                previousY += previousYd;
                 rungeData.Rows[k].Cells[0].Value = i + step;
-                rungeData.Rows[k].Cells[1].Value = previousYd + previousY;
+                rungeData.Rows[k].Cells[1].Value = previousY;
             }
 
             watch.Stop();
 
-            rungeTimer.Text = $"Метод Эйлера: {watch.Elapsed}";
+            rungeTimer1.Text = $"Метод Рунге-Кутта: {watch.Elapsed}";
         }
 
 
         private double F (double x1, double y1)
         {
-            //return (2 * x1 * x1) + (7 * y1) - (4 * y1 * y1); //(5 * x1 * y1) + (2 * y1) - x1)
-            return (2 * x1) + (5 * Math.Pow(x1, y1)) + (3 * y1);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            return (2 * x1 * x1) + (7 * y1) - (4 * y1 * y1);
         }
     }
 }
