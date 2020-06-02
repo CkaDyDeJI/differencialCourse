@@ -282,7 +282,6 @@
             // 
             // yTextBox
             // 
-            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -314,7 +313,6 @@
             // 
             // leftBorderBox
             // 
-            this.leftBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.leftBorderBox.Name = "leftBorderBox";
             this.leftBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -331,7 +329,6 @@
             // 
             // rightBorderBox
             // 
-            this.rightBorderBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.rightBorderBox.Name = "rightBorderBox";
             this.rightBorderBox.Size = new System.Drawing.Size(100, 25);
             // 
@@ -348,7 +345,6 @@
             // 
             // stepBox
             // 
-            this.stepBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.stepBox.Name = "stepBox";
             this.stepBox.Size = new System.Drawing.Size(100, 25);
             // 

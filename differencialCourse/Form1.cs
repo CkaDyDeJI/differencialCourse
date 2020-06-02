@@ -122,13 +122,13 @@ namespace differencialCourse
             var step = startValues_[2];
 
             double previousY = startValues_.Last();
-            double previousYd = 0;
+            double deltaY = 0;
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
             {
-                previousYd = step * F(i, previousY);
+                deltaY = step * F(i, previousY);
 
-                calculatedData.Rows.Add(i, previousY, previousYd);
-                previousY += previousYd;
+                calculatedData.Rows.Add(i, previousY, deltaY);
+                previousY += deltaY;
             }
 
             watch.Stop();
@@ -151,7 +151,7 @@ namespace differencialCourse
             double k3 = 0;
             double k4 = 0;
             double previousY = startValues_.Last();
-            double previousYd = 0;
+            double deltaY = 0;
             for (var i = startValues_[0]; i < startValues_[1]; i += step)
             {
                 k1 = step * F(i, previousY);
@@ -159,10 +159,10 @@ namespace differencialCourse
                 k3 = step * F(i + step / 2.0, previousY + k2 / 2.0);
                 k4 = step * F(i + step, previousY + k3);
 
-                previousYd = 1.0 / 6.0 * (k1 + (2 * k2) + (2 * k3) + k4);
+                deltaY = 1.0 / 6.0 * (k1 + (2 * k2) + (2 * k3) + k4);
 
-                rungeData.Rows.Add(i, previousY, k1, k2, k3, k4, previousYd);
-                previousY += previousYd;
+                rungeData.Rows.Add(i, previousY, k1, k2, k3, k4, deltaY);
+                previousY += deltaY;
             }
 
             watch.Stop();
