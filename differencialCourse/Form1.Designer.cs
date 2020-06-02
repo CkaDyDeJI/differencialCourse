@@ -28,19 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.methodList = new System.Windows.Forms.CheckedListBox();
-            this.rungeTimer = new System.Windows.Forms.Label();
-            this.eulerTimer = new System.Windows.Forms.Label();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.calculatedData = new System.Windows.Forms.DataGridView();
-            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Yy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rungeData = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Xk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.k1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +42,13 @@
             this.k3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.k4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Yks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.yLabel = new System.Windows.Forms.ToolStripLabel();
-            this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.eulerTimer = new System.Windows.Forms.Label();
+            this.rungeTimer = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Yy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.leftBorderBox = new System.Windows.Forms.ToolStripTextBox();
@@ -61,9 +59,8 @@
             this.stepLabel = new System.Windows.Forms.ToolStripLabel();
             this.stepBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.calculateButton = new System.Windows.Forms.ToolStripButton();
-            this.eulerTimer1 = new System.Windows.Forms.TextBox();
-            this.rungeTimer1 = new System.Windows.Forms.TextBox();
+            this.yLabel = new System.Windows.Forms.ToolStripLabel();
+            this.yTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -71,13 +68,10 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).BeginInit();
-            this.toolStrip2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,9 +81,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 37);
+            this.label1.Size = new System.Drawing.Size(304, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "y\' = 2x² + 7y – 4y² ";
+            this.label1.Text = "y\' = 10 - 2sin(3x + y)";
             // 
             // toolStripContainer1
             // 
@@ -107,7 +101,6 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // splitContainer1
@@ -119,19 +112,30 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.rungeTimer1);
-            this.splitContainer1.Panel1.Controls.Add(this.eulerTimer1);
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.methodList);
-            this.splitContainer1.Panel1.Controls.Add(this.rungeTimer);
-            this.splitContainer1.Panel1.Controls.Add(this.eulerTimer);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.eulerTimer);
+            this.splitContainer1.Panel2.Controls.Add(this.rungeTimer);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(979, 558);
             this.splitContainer1.SplitterDistance = 142;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Info;
+            this.button1.Location = new System.Drawing.Point(322, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(168, 83);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Вычислить";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // methodList
             // 
@@ -140,83 +144,28 @@
             this.methodList.Items.AddRange(new object[] {
             "Эйлер",
             "Рунге-Кутты"});
-            this.methodList.Location = new System.Drawing.Point(700, 3);
+            this.methodList.Location = new System.Drawing.Point(19, 75);
             this.methodList.MultiColumn = true;
             this.methodList.Name = "methodList";
-            this.methodList.Size = new System.Drawing.Size(120, 34);
+            this.methodList.Size = new System.Drawing.Size(286, 34);
             this.methodList.TabIndex = 5;
             // 
-            // rungeTimer
+            // groupBox2
             // 
-            this.rungeTimer.AutoSize = true;
-            this.rungeTimer.Location = new System.Drawing.Point(346, 129);
-            this.rungeTimer.Name = "rungeTimer";
-            this.rungeTimer.Size = new System.Drawing.Size(0, 13);
-            this.rungeTimer.TabIndex = 4;
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Location = new System.Drawing.Point(598, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(378, 373);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Рунге-Кутта";
             // 
-            // eulerTimer
+            // dataGridView2
             // 
-            this.eulerTimer.AutoSize = true;
-            this.eulerTimer.Location = new System.Drawing.Point(12, 129);
-            this.eulerTimer.Name = "eulerTimer";
-            this.eulerTimer.Size = new System.Drawing.Size(0, 13);
-            this.eulerTimer.TabIndex = 1;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.calculatedData);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.rungeData);
-            this.splitContainer2.Size = new System.Drawing.Size(979, 412);
-            this.splitContainer2.SplitterDistance = 345;
-            this.splitContainer2.TabIndex = 2;
-            // 
-            // calculatedData
-            // 
-            this.calculatedData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.calculatedData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.calculatedData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.x,
-            this.y,
-            this.Yy});
-            this.calculatedData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calculatedData.Location = new System.Drawing.Point(0, 0);
-            this.calculatedData.Name = "calculatedData";
-            this.calculatedData.RowHeadersVisible = false;
-            this.calculatedData.Size = new System.Drawing.Size(345, 412);
-            this.calculatedData.TabIndex = 0;
-            // 
-            // x
-            // 
-            this.x.HeaderText = "x";
-            this.x.Name = "x";
-            this.x.ReadOnly = true;
-            // 
-            // y
-            // 
-            this.y.HeaderText = "y";
-            this.y.Name = "y";
-            this.y.ReadOnly = true;
-            // 
-            // Yy
-            // 
-            this.Yy.HeaderText = "y\'";
-            this.Yy.Name = "Yy";
-            this.Yy.ReadOnly = true;
-            // 
-            // rungeData
-            // 
-            this.rungeData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.rungeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rungeData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Xk,
             this.Yk,
             this.k1,
@@ -224,12 +173,12 @@
             this.k3,
             this.k4,
             this.Yks});
-            this.rungeData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rungeData.Location = new System.Drawing.Point(0, 0);
-            this.rungeData.Name = "rungeData";
-            this.rungeData.RowHeadersVisible = false;
-            this.rungeData.Size = new System.Drawing.Size(630, 412);
-            this.rungeData.TabIndex = 1;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(372, 354);
+            this.dataGridView2.TabIndex = 1;
             // 
             // Xk
             // 
@@ -266,33 +215,69 @@
             this.Yks.HeaderText = "Y\'";
             this.Yks.Name = "Yks";
             // 
-            // toolStrip2
+            // eulerTimer
             // 
-            this.toolStrip2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yLabel,
-            this.yTextBox});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(133, 25);
-            this.toolStrip2.TabIndex = 1;
+            this.eulerTimer.AutoSize = true;
+            this.eulerTimer.Location = new System.Drawing.Point(3, 379);
+            this.eulerTimer.Name = "eulerTimer";
+            this.eulerTimer.Size = new System.Drawing.Size(0, 13);
+            this.eulerTimer.TabIndex = 1;
             // 
-            // yLabel
+            // rungeTimer
             // 
-            this.yLabel.Name = "yLabel";
-            this.yLabel.Size = new System.Drawing.Size(19, 22);
-            this.yLabel.Text = "y0";
+            this.rungeTimer.AutoSize = true;
+            this.rungeTimer.Location = new System.Drawing.Point(598, 379);
+            this.rungeTimer.Name = "rungeTimer";
+            this.rungeTimer.Size = new System.Drawing.Size(0, 13);
+            this.rungeTimer.TabIndex = 4;
             // 
-            // yTextBox
+            // groupBox1
             // 
-            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.yTextBox.Name = "yTextBox";
-            this.yTextBox.Size = new System.Drawing.Size(100, 25);
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(385, 370);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Эйлер";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Info;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.x,
+            this.y,
+            this.Yy});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(379, 351);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // x
+            // 
+            this.x.HeaderText = "x";
+            this.x.Name = "x";
+            this.x.ReadOnly = true;
+            // 
+            // y
+            // 
+            this.y.HeaderText = "y";
+            this.y.Name = "y";
+            this.y.ReadOnly = true;
+            // 
+            // Yy
+            // 
+            this.Yy.HeaderText = "y\'";
+            this.Yy.Name = "Yy";
+            this.Yy.ReadOnly = true;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Info;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -304,10 +289,11 @@
             this.stepLabel,
             this.stepBox,
             this.toolStripSeparator3,
-            this.calculateButton});
-            this.toolStrip1.Location = new System.Drawing.Point(136, 0);
+            this.yLabel,
+            this.yTextBox});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(668, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(718, 25);
             this.toolStrip1.TabIndex = 0;
             // 
             // toolStripLabel1
@@ -361,29 +347,17 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // calculateButton
+            // yLabel
             // 
-            this.calculateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.calculateButton.Image = ((System.Drawing.Image)(resources.GetObject("calculateButton.Image")));
-            this.calculateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.calculateButton.Name = "calculateButton";
-            this.calculateButton.Size = new System.Drawing.Size(71, 22);
-            this.calculateButton.Text = "вычислить";
-            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
+            this.yLabel.Name = "yLabel";
+            this.yLabel.Size = new System.Drawing.Size(19, 22);
+            this.yLabel.Text = "y0";
             // 
-            // eulerTimer1
+            // yTextBox
             // 
-            this.eulerTimer1.Location = new System.Drawing.Point(19, 110);
-            this.eulerTimer1.Name = "eulerTimer1";
-            this.eulerTimer1.Size = new System.Drawing.Size(100, 20);
-            this.eulerTimer1.TabIndex = 6;
-            // 
-            // rungeTimer1
-            // 
-            this.rungeTimer1.Location = new System.Drawing.Point(462, 110);
-            this.rungeTimer1.Name = "rungeTimer1";
-            this.rungeTimer1.Size = new System.Drawing.Size(100, 20);
-            this.rungeTimer1.TabIndex = 7;
+            this.yTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.yTextBox.Name = "yTextBox";
+            this.yTextBox.Size = new System.Drawing.Size(100, 25);
             // 
             // Form1
             // 
@@ -394,7 +368,7 @@
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "Диффуры";
+            this.Text = "Дифференциальные уравнения";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -403,16 +377,13 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.calculatedData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rungeData)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -432,17 +403,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel stepLabel;
         private System.Windows.Forms.ToolStripTextBox stepBox;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton calculateButton;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView calculatedData;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripLabel yLabel;
-        private System.Windows.Forms.ToolStripTextBox yTextBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn x;
         private System.Windows.Forms.DataGridViewTextBoxColumn y;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yy;
-        private System.Windows.Forms.DataGridView rungeData;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Xk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yk;
         private System.Windows.Forms.DataGridViewTextBoxColumn k1;
@@ -451,11 +417,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn k4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Yks;
         private System.Windows.Forms.Label eulerTimer;
-        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label rungeTimer;
         private System.Windows.Forms.CheckedListBox methodList;
-        private System.Windows.Forms.TextBox rungeTimer1;
-        private System.Windows.Forms.TextBox eulerTimer1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel yLabel;
+        private System.Windows.Forms.ToolStripTextBox yTextBox;
     }
 }
 

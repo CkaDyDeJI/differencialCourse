@@ -12,7 +12,7 @@ namespace differencialCourse
 
     public partial class Form1 : Form
     {
-        private readonly double[] startValues_ = new double[4]; 
+        private readonly double[] initialValues_ = new double[4]; 
 
 
         public Form1()
@@ -55,56 +55,56 @@ namespace differencialCourse
         {
             try
             {
-                startValues_[0] = ToDouble(leftBorderBox.Text.Replace('.', ',')); 
+                initialValues_[0] = ToDouble(leftBorderBox.Text.Replace('.', ',')); 
             }
             catch
             {
-                MessageBox.Show("incorrect left border");  
+                MessageBox.Show("неверно введена левая граница");  
 
                 return false;
             }
 
             try
             {
-                startValues_[1] = ToDouble(rightBorderBox.Text.Replace('.', ','));    
+                initialValues_[1] = ToDouble(rightBorderBox.Text.Replace('.', ','));    
             }
             catch
             {
-                MessageBox.Show("incorrect right border");
+                MessageBox.Show("неверно введена правая граница");
 
                 return false;
             }
 
             try
             {
-                startValues_[2] = ToDouble(stepBox.Text.Replace('.', ','));   
+                initialValues_[2] = ToDouble(stepBox.Text.Replace('.', ','));   
             }
             catch
             {
-                MessageBox.Show("incorrect step");
+                MessageBox.Show("некорректный шаг");
 
                 return false;
             }
 
             try
             {
-                startValues_[3] = ToDouble(yTextBox.Text.Replace('.', ','));  
+                initialValues_[3] = ToDouble(yTextBox.Text.Replace('.', ','));  
             }
             catch
             {
-                MessageBox.Show("incorrect y0");
+                MessageBox.Show("неверное значение y0");
 
                 return false;
             }
 
-            if  (startValues_[0] > startValues_[1]) {
-                MessageBox.Show("left border must be lesser than right");
+            if  (initialValues_[0] > initialValues_[1]) {
+                MessageBox.Show("левая граница должна быть больше правой границы");
 
                 return false;
             }
 
-            if (startValues_[1] - startValues_[0] < startValues_[2]) {
-                MessageBox.Show ("step has to be lesser than difference between right and left border");
+            if (initialValues_[1] - initialValues_[0] < initialValues_[2]) {
+                MessageBox.Show ("шаг должен быть меньше разница между правой и левой границами");
 
                 return false;
             }
@@ -115,93 +115,93 @@ namespace differencialCourse
 
         private void eulerMethod()  
         {
-            calculatedData.Rows.Clear();    
+            dataGridView1.Rows.Clear();    
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            var step = startValues_[2]; 
+            var step = initialValues_[2]; 
 
-            calculatedData.Rows.Add();  
-            calculatedData.Rows[0].Cells[0].Value = startValues_.First();   
-            calculatedData.Rows[0].Cells[1].Value = startValues_.Last();    
+            dataGridView1.Rows.Add();  
+            dataGridView1.Rows[0].Cells[0].Value = initialValues_.First();   
+            dataGridView1.Rows[0].Cells[1].Value = initialValues_.Last();    
 
 
             var k = 0;  
-            double previousY = startValues_.Last();   
+            double previousY = initialValues_.Last();   
             double previousYd = 0;  
-            for (var i = startValues_[0]; i < startValues_[1]; i += step)
+            for (var i = initialValues_[0]; i < initialValues_[1]; i += step)
             { 
-                calculatedData.Rows.Add();
+                dataGridView1.Rows.Add();
                 //previousY = ToDouble(calculatedData.Rows[k].Cells[1].Value);   
                 previousYd = step * F(i, previousY);   
 
-                calculatedData.Rows[k].Cells[2].Value = previousYd; 
+                dataGridView1.Rows[k].Cells[2].Value = previousYd; 
                 k++;
 
                 previousY += previousYd;
-                calculatedData.Rows[k].Cells[0].Value = i + step;   
-                calculatedData.Rows[k].Cells[1].Value = previousY; 
+                dataGridView1.Rows[k].Cells[0].Value = i + step;   
+                dataGridView1.Rows[k].Cells[1].Value = previousY; 
             }
 
             watch.Stop();
 
-            eulerTimer1.Text = $"Метод Эйлера: {watch.Elapsed}";
+            eulerTimer.Text = $"Метод Эйлера: {watch.Elapsed}";
         }
 
 
         private void rungeKutteMethod() 
         {
-            rungeData.Rows.Clear();
+            dataGridView2.Rows.Clear();
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            var step = startValues_[2];
+            var step = initialValues_[2];
 
-            rungeData.Rows.Add();
-            rungeData.Rows[0].Cells[0].Value = startValues_.First();
-            rungeData.Rows[0].Cells[1].Value = startValues_.Last();
+            dataGridView2.Rows.Add();
+            dataGridView2.Rows[0].Cells[0].Value = initialValues_.First();
+            dataGridView2.Rows[0].Cells[1].Value = initialValues_.Last();
 
             var k = 0;
             double k1 = 0;  
             double k2 = 0;
             double k3 = 0;
             double k4 = 0;
-            double previousY = startValues_.Last();
+            double previousY = initialValues_.Last();
             double previousYd = 0;
-            for (var i = startValues_[0]; i < startValues_[1]; i += step)
+            for (var i = initialValues_[0]; i < initialValues_[1]; i += step)
             {
-                rungeData.Rows.Add();
+                dataGridView2.Rows.Add();
 
                 k1 = step * F(i, previousY);
                 k2 = step * F(i + step / 2.0, previousY + k1 / 2.0);
                 k3 = step * F(i + step / 2.0, previousY + k2 / 2.0);
                 k4 = step * F(i + step, previousY + k3);
-                rungeData.Rows[k].Cells[2].Value = k1;
-                rungeData.Rows[k].Cells[3].Value = k2;
-                rungeData.Rows[k].Cells[4].Value = k3;
-                rungeData.Rows[k].Cells[5].Value = k4;
+                dataGridView2.Rows[k].Cells[2].Value = k1;
+                dataGridView2.Rows[k].Cells[3].Value = k2;
+                dataGridView2.Rows[k].Cells[4].Value = k3;
+                dataGridView2.Rows[k].Cells[5].Value = k4;
 
                 previousYd = 1.0 / 6.0 * (k1 + (2 * k2) + (2 * k3) + k4);
 
-                rungeData.Rows[k].Cells[6].Value = previousYd;
+                dataGridView2.Rows[k].Cells[6].Value = previousYd;
                 k++;
 
                 previousY += previousYd;
-                rungeData.Rows[k].Cells[0].Value = i + step;
-                rungeData.Rows[k].Cells[1].Value = previousY;
+                dataGridView2.Rows[k].Cells[0].Value = i + step;
+                dataGridView2.Rows[k].Cells[1].Value = previousY;
             }
 
             watch.Stop();
 
-            rungeTimer1.Text = $"Метод Рунге-Кутта: {watch.Elapsed}";
+            rungeTimer.Text = $"Метод Рунге-Кутта: {watch.Elapsed}";
         }
 
 
-        private double F (double x1, double y1)
+        private double F (double x, double y)
         {
-            return (2 * x1 * x1) + (7 * y1) - (4 * y1 * y1);
+            return (10 - 2 * Math.Sin (3 * x + y));
         }
     }
 }
